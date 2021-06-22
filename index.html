@@ -63,6 +63,11 @@
 
 		return val > 127 ? 127 : val;
 	}
+	const randomDarkVal = () => {
+		const val = Math.floor(Math.random() * 255);
+
+		return val > 225 ? 225 : val;
+	}
 
 	for (var i = 0; i < area; i++) {
 		if (y >= width) {
@@ -74,13 +79,13 @@
 		let val = randomRgbaVal();
 
 		if (plot < quadrants[1]) {
-			val = randomMedVal();
+			val = randomRgbaVal();
 		} 
-		// else if (plot < quadrants[2]) {
-		// 	val = randomMedVal();
-		// } else if (plot < quadrants[3]) {
-		// 	val = randomMutedVal();
-		// }
+		else if (plot < quadrants[2]) {
+			val = randomMedVal();
+		} else if (plot < quadrants[3]) {
+			val = randomMutedVal();
+		}
 
 		const imageData = new ImageData(new Uint8ClampedArray([val, val, val, randomRgbaVal()]), 1, 1);
 
