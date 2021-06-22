@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Complex Sky</title>
+</head>
+<style>
+	* {
+			margin: 0;
+			padding: 0;
+			box-sizing:border-box; 
+		 -moz-box-sizing:border-box; 
+		 -webkit-box-sizing:border-box; 
+		 -ms-box-sizing:border-box;
+	}
+
+	html {
+		height: 100%;
+	}
+
+	body {
+		height: 100%;
+		display: flex;
+	}
+
+	#canvas {
+		margin: auto;
+	}
+</style>
+<body>
+	<canvas id="canvas"></canvas>
+</body>	
+<script>
+	const canvas = document.getElementById('canvas');
+	const ctx = canvas.getContext('2d');
+
+	const height = 500;
+	const width = 700;
+	const area = height * width;
+
+	ctx.canvas.width  = width;
+  ctx.canvas.height = height;
+
+	let row = 0;
+	let column = 0;
+	const randomRgbaVal = () => Math.floor(Math.random() * 255);
+	const randomMutedVal = () => {
+		const val = Math.floor(Math.random() * 200);
+
+		return val < 100 ? 100 : val;
+	};
+	const randomMedVal = () => {
+		const val = Math.floor(Math.random() * 255);
+
+		return val > 127 ? 127 : val;
+	}
+
+	for (var i = 0; i < area; i++) {
+		if (column >= width) {
+			row++
+			column = 0;
+		}
+
+		const imageData = new ImageData(new Uint8ClampedArray([randomMedVal(), randomMedVal(), randomMedVal(), randomRgbaVal()]), 1, 1);
+
+		ctx.putImageData(imageData, column, row);
+		column++;
+	};
+</script>
+</html>
