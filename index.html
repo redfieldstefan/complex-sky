@@ -41,8 +41,17 @@
 	ctx.canvas.width  = width;
   ctx.canvas.height = height;
 
-	let row = 0;
-	let column = 0;
+  const quadrants = {
+  	1: width / 2 * height / 2,
+  	2: width * height / 2,
+  	3: width / 2 * height,
+  	4: area,
+  };
+
+
+
+	let x = 0;
+	let y = 0;
 	const randomRgbaVal = () => Math.floor(Math.random() * 255);
 	const randomMutedVal = () => {
 		const val = Math.floor(Math.random() * 200);
@@ -56,15 +65,27 @@
 	}
 
 	for (var i = 0; i < area; i++) {
-		if (column >= width) {
-			row++
-			column = 0;
+		if (y >= width) {
+			x++
+			y = 0;
 		}
 
-		const imageData = new ImageData(new Uint8ClampedArray([randomMedVal(), randomMedVal(), randomMedVal(), randomRgbaVal()]), 1, 1);
+		const plot = x * y;
+		let val = randomRgbaVal();
 
-		ctx.putImageData(imageData, column, row);
-		column++;
+		if (plot < quadrants[1]) {
+			val = randomMedVal();
+		} 
+		// else if (plot < quadrants[2]) {
+		// 	val = randomMedVal();
+		// } else if (plot < quadrants[3]) {
+		// 	val = randomMutedVal();
+		// }
+
+		const imageData = new ImageData(new Uint8ClampedArray([val, val, val, randomRgbaVal()]), 1, 1);
+
+		ctx.putImageData(imageData, y, x);
+		y++;
 	};
 </script>
 </html>
