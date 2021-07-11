@@ -1,0 +1,16 @@
+{
+  "name": "complex-sky",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "<redfield.stefan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^7.1.7",
+    "html-webpack-plugin": "^5.3.2",
+    "node": "^16.4.0",
+    "webpack": "^5.44.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.7.2"
+  }
+}
