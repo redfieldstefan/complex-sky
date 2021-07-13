@@ -56,7 +56,6 @@ const generateHtml = () => entryFiles.map(({ base }) => {
 });
 
 const entries = entryFiles.reduce((accum, { file, base }) => {
-	console.log("entryFiles", accum, {file, base})
 	return {
 		[base]: file,
 		...accum
