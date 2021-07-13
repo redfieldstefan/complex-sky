@@ -1,11 +1,8 @@
-import { randomRgbaVal } from '../index';
+import { randomRgbaVal, createCanvas } from '../index';
 
-const Streak = () => {
-	const canvas = document.getElementById('canvas');
-	const ctx = canvas.getContext('2d');
+const Streak = ({id="streak", height = 500, width = 700}) => {
+	const { ctx } = createCanvas({ id, height, width });
 
-	const height = 500;
-	const width = 700;
 	const area = height * width;
 
 	ctx.canvas.width  = width;
@@ -41,4 +38,4 @@ const Streak = () => {
 	};
 };
 
-	export default (Streak)();
+export default (Streak)({});

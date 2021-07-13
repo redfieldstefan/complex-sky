@@ -17,3 +17,21 @@ export const randomDarkVal = () => {
 
 	return val > 225 ? 225 : val;
 }
+
+export const createCanvas = ({ id, height, width }) => {
+	const freshCanvas = document.createElement("canvas", { id });
+	freshCanvas.setAttribute('id', id);
+	freshCanvas.style.height = `${height}px`;
+	freshCanvas.style.width = `${width}px`;
+	freshCanvas.style.margin = "auto";
+
+	document.body.appendChild(freshCanvas);
+
+	const canvas = document.getElementById(id);
+	const ctx = canvas.getContext('2d');
+
+	return {
+		canvas,
+		ctx
+	}
+}

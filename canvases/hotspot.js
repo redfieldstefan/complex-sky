@@ -1,10 +1,7 @@
-import { randomDarkVal } from '../index';
+import { randomDarkVal, createCanvas } from '../index';
 
-const Hotspot = ({id="canvas", height = 500, width = 700}) => {
-	// document.createElement("canvas", { id: 'canvas' });
-
-	const canvas = document.getElementById('canvas');
-	const ctx = canvas.getContext('2d');
+const Hotspot = ({id="hotspot", height = 500, width = 700}) => {
+	const { ctx } = createCanvas({id, height, width});
 
 	const area = height * width;
 

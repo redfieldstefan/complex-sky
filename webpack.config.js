@@ -9,6 +9,8 @@ const entryFiles = glob.sync('./canvases/*.js').map(file => {
 	}
 });
 
+const navList = entryFiles.map(({base}) => `<a href="${base}.html">${base}</a>`).reduce((accum, val) => accum + val, "");
+
 const generateHtml = () => entryFiles.map(({ base }) => {
 	const baseFileName = base;
 
@@ -40,13 +42,12 @@ const generateHtml = () => entryFiles.map(({ base }) => {
 						height: 100%;
 						display: flex;
 					}
-
-					#canvas {
-						margin: auto;
-					}
 				</style>
 				<body>
-					<canvas id="canvas" />
+					<nav>
+						${navList}
+					</nav>
+					
 				</body>
 				<script src="./${baseFileName}.bundle.js"></script>
 			</html>
