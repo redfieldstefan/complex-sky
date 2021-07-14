@@ -6,6 +6,11 @@
 					<title>hotspot</title>
 				</head>
 				<style>
+					@font-face {
+					    font-family: myFirstFont;
+					    src:'fonts/OpenSans-Regular.ttf';
+					}
+
 					* {
 							margin: 0;
 							padding: 0;
@@ -13,7 +18,9 @@
 						 -moz-box-sizing:border-box; 
 						 -webkit-box-sizing:border-box; 
 						 -ms-box-sizing:border-box;
+						 font-family: 'Open Sans', sans-serif;
 					}
+
 
 					html {
 						height: 100%;
@@ -23,12 +30,31 @@
 						height: 100%;
 						display: flex;
 					}
+
+					.nav-item {
+						text-transform: uppercase;
+						display: block;
+					}
+
+					#container {
+						display: flex;
+				    flex-direction: column;
+				    justify-content: center;
+				    margin: auto;
+					}
+
+					#placeholder {
+						position: absolute;
+						align-self: center;
+					}
 				</style>
 				<body>
 					<nav>
-						<a href="hotspot.html">hotspot</a><a href="part-moon.html">part-moon</a><a href="streak.html">streak</a>
+						<li class="nav-item"><a href="hotspot.html">hotspot</a></li><li class="nav-item"><a href="part-moon.html">part-moon</a></li><li class="nav-item"><a href="streak.html">streak</a></li>
 					</nav>
-					
+					<div id="container">
+						<p id="placeholder">Hold on...</p>
+					</div>
 				</body>
 				<script src="./hotspot.bundle.js"></script>
 			</html>

@@ -1,9 +1,15 @@
+const canvasTemplate = (base, filenames) => {
+	const navList = filenames.map(({base}) => `<li class="nav-item"><a href="${base}.html">${base}</a></li>`).reduce((accum, val) => accum + val, "");
 
+	return {
+		filename: `${base}.html`,
+		inject: false,
+	  templateContent: `
 			<!DOCTYPE html>
 			<html>
 				<head>
 					<meta charset="utf-8">
-					<title>streak</title>
+					<title>${base}</title>
 				</head>
 				<style>
 					@font-face {
@@ -50,12 +56,16 @@
 				</style>
 				<body>
 					<nav>
-						<li class="nav-item"><a href="hotspot.html">hotspot</a></li><li class="nav-item"><a href="part-moon.html">part-moon</a></li><li class="nav-item"><a href="streak.html">streak</a></li>
+						${navList}
 					</nav>
 					<div id="container">
 						<p id="placeholder">Hold on...</p>
 					</div>
 				</body>
-				<script src="./streak.bundle.js"></script>
+				<script src="./${base}.bundle.js"></script>
 			</html>
-	  
+	  `
+	}
+}
+
+module.exports = canvasTemplate;

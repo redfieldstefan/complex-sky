@@ -2,7 +2,7 @@ import { randomRgbaVal, randomMedVal, createCanvas } from '../index';
 
 const partMoon = ({id="part-moon", height = 500, width = 700}) => {
 	const canvas = document.getElementById('canvas');
-	const { ctx } = createCanvas({id, height, width});
+	const { ctx } = createCanvas({id, height, width, title: "Part Moon"});
 
 	const area = height * width;
 

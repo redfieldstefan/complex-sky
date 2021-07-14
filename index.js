@@ -18,14 +18,27 @@ export const randomDarkVal = () => {
 	return val > 225 ? 225 : val;
 }
 
-export const createCanvas = ({ id, height, width }) => {
-	const freshCanvas = document.createElement("canvas", { id });
-	freshCanvas.setAttribute('id', id);
-	freshCanvas.style.height = `${height}px`;
-	freshCanvas.style.width = `${width}px`;
-	freshCanvas.style.margin = "auto";
+export const createCanvas = ({ id, height, width, title }) => {
+	const container = document.getElementById("container");
+	const label = title && document.createElement("p");
+	const placeholder = document.getElementById("placeholder");
+	const freshCanvas = document.createElement("canvas");
 
-	document.body.appendChild(freshCanvas);
+	freshCanvas.setAttribute('id', id);
+	container.style.height = `${height}px`;
+	container.style.width = `${width}px`;
+
+	container.appendChild(freshCanvas);
+
+	if (label) {
+		label.innerHTML = title.toUpperCase();
+		label.style.fontSize = '.8em';
+		container.appendChild(label);
+	}
+
+	if (placeholder) {
+		placeholder.remove();
+	}
 
 	const canvas = document.getElementById(id);
 	const ctx = canvas.getContext('2d');

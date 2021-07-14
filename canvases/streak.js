@@ -1,7 +1,7 @@
 import { randomRgbaVal, createCanvas } from '../index';
 
 const Streak = ({id="streak", height = 500, width = 700}) => {
-	const { ctx } = createCanvas({ id, height, width });
+	const { ctx } = createCanvas({ id, height, width, title: "Streak" });
 
 	const area = height * width;
 

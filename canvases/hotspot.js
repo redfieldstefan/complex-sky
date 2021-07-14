@@ -1,7 +1,7 @@
 import { randomDarkVal, createCanvas } from '../index';
 
 const Hotspot = ({id="hotspot", height = 500, width = 700}) => {
-	const { ctx, removePlaceholder } = createCanvas({id, height, width});
+	const { ctx } = createCanvas({id, height, width, title: "hotspot"});
 
 	const area = height * width;
 

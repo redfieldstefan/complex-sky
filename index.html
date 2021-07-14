@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>${base}</title>
+	</head>
+	<style>
+		@font-face {
+		    font-family: myFirstFont;
+		    src:'fonts/OpenSans-Regular.ttf';
+		}
+
+		* {
+				margin: 0;
+				padding: 0;
+				box-sizing:border-box; 
+			 -moz-box-sizing:border-box; 
+			 -webkit-box-sizing:border-box; 
+			 -ms-box-sizing:border-box;
+			 font-family: 'Open Sans', sans-serif;
+			 font-size: 12px;
+		}
+
+		html {
+			height: 100%;
+		}
+
+		body {
+			height: 100%;
+			display: flex;
+		}
+
+		.nav-item {
+			text-transform: uppercase;
+			display: block;
+		}
+	</style>
+	<body>
+		<nav>
+			${navList}
+		</nav>
+		<div id="container"></div>
+	</body>
+</html>
