@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./canvases/part-moon.js":
+/***/ "./canvases/hotspot-2.js":
 /*!*******************************!*\
-  !*** ./canvases/part-moon.js ***!
+  !*** ./canvases/hotspot-2.js ***!
   \*******************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ \"./index.js\");\n\n\nconst partMoon = ({id=\"part-moon\", height = 500, width = 700}) => {\n\tconst canvas = document.getElementById('canvas');\n\tconst { ctx } = (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.createCanvas)({id, height, width, title: \"Part Moon\"});\n\n\tconst area = height * width;\n\n\tctx.canvas.width  = width;\n  ctx.canvas.height = height;\n\n  const quadrants = {\n  \t1: width / 2 * height / 2,\n  \t2: width * height / 2,\n  \t3: width / 2 * height,\n  \t4: area,\n  };\n\n\tlet x = 0;\n\tlet y = 0;\n\n\tfor (var i = 0; i < area; i++) {\n\t\tif (y >= width) {\n\t\t\tx++\n\t\t\ty = 0;\n\t\t}\n\n\t\tconst plot = x * y;\n\t\t\n\t\tlet val = (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.randomRgbaVal)();\n\n\t\tif (plot < quadrants[1]) {\n\t\t\tval = (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.randomMedVal)();\n\t\t} \n\n\t\tconst imageData = new ImageData(new Uint8ClampedArray([val, val, val, (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.randomRgbaVal)()]), 1, 1);\n\n\t\tctx.putImageData(imageData, y, x);\n\t\ty++;\n\t};\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((partMoon)({}));\n\n\n\n//# sourceURL=webpack://complex-sky/./canvases/part-moon.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ \"./index.js\");\n\n\nconst Hotspot = ({id=\"hotspot-2\", height = 400, width = 400}) => {\n\tconst { ctx } = (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.createCanvas)({id, height, width, title: \"hotspot-2\"});\n\n\tconst area = height * width;\n\n\tctx.canvas.width  = width;\n  ctx.canvas.height = height;\n\n\tconst hotspotX = Math.floor(width / 2);\n\tconst hotspotY = Math.floor(height / 2);\n\n\tconst strengthInRender = (x, y) => {\n\n\t\tconst xdiff = Math.abs(hotspotX - x);\n\t\tconst ydiff = Math.abs(hotspotY - y);\n\n\t\tconst randomX = Math.floor(Math.random() * xdiff);\n\t\tconst randomY = Math.floor(Math.random() * ydiff);\n\n\t\treturn (y === hotspotY || x === hotspotX) ? 0 : Math.random() < .6 ? randomY : randomX;\n\n\t}\n\n\tlet x = 1;\n\tlet y = 1;\n\n\tfor (var i = 1; i < area; i++) {\n\t\tif (x >= width) {\n\t\t\ty++\n\t\t\tx = 1;\n\t\t}\n\n\t\tconst imageData = new ImageData(new Uint8ClampedArray([strengthInRender(x, y), strengthInRender(x, y), strengthInRender(x, y), (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.randomDarkVal)(x, y)]), 1, 1);\n\n\t\tctx.putImageData(imageData, x, y);\n\t\tx++;\n\t};\n\n\treturn;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((Hotspot)({}));\n\n\n//# sourceURL=webpack://complex-sky/./canvases/hotspot-2.js?");
 
 /***/ }),
 
@@ -90,7 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./canvases/part-moon.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./canvases/hotspot-2.js");
 /******/ 	
 /******/ })()
 ;

@@ -1,4 +1,4 @@
-import { randomDarkVal, createCanvas } from '../index';
+import { randomDarkVal, createCanvas } from '../index.js';
 
 const Hotspot = ({id="hotspot", height = 500, width = 700}) => {
 	const { ctx } = createCanvas({id, height, width, title: "hotspot"});
@@ -19,12 +19,7 @@ const Hotspot = ({id="hotspot", height = 500, width = 700}) => {
 		const randomX = Math.floor(Math.random() * xdiff);
 		const randomY = Math.floor(Math.random() * ydiff);
 
-		// if (xdiff * ydiff < 10000) {
-		// 	return Math.random() < .6 ? randomY : randomX
-		// }
-
 		return (y === hotspotY || x === hotspotX) ? 0 : Math.random() < .3 ? randomY : randomX;
-
 	}
 
 	let x = 0;

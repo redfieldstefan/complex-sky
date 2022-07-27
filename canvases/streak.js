@@ -1,4 +1,4 @@
-import { randomRgbaVal, createCanvas } from '../index';
+import { randomRgbaVal, createCanvas } from '../index.js';
 
 const Streak = ({id="streak", height = 500, width = 700}) => {
 	const { ctx } = createCanvas({ id, height, width, title: "Streak" });

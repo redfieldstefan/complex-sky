@@ -68,4 +68,4 @@ const canvasTemplate = (base, filenames) => {
 	}
 }
 
-module.exports = canvasTemplate;
+export default canvasTemplate;

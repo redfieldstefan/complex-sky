@@ -4,10 +4,18 @@
   "main": "index.js",
   "author": "<redfield.stefan@gmail.com>",
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "webpack",
+    "deploy": "yarn build && node scripts/upload",
+    "dev": "nodemon --watch canvases --exec 'yarn build'"
+  },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.21.0",
+    "dotenv": "^10.0.0",
     "glob": "^7.1.7",
     "html-webpack-plugin": "^5.3.2",
-    "node": "^16.4.0",
+    "node": "^16.5.0",
     "webpack": "^5.44.0"
   },
   "devDependencies": {

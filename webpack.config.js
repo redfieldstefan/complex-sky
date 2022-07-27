@@ -1,7 +1,11 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const glob = require('glob');
-const path = require('path');
-const canvasTempate = require('./templates/canvas');
+import dotEnv from 'dotenv';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import glob from 'glob';
+import path from 'path';
+import canvasTempate from './templates/canvas.js';
+import fs from "fs";
+
+dotEnv.config();
 
 const entryFiles = glob.sync('./canvases/*.js').map(file => {
 	return {
@@ -23,12 +27,12 @@ const entries = entryFiles.reduce((accum, { file, base }) => {
 	}
 }, { index: './index.js' })
 
-module.exports = {
-	mode: 'development',
+export default {
+	mode: process.env.MODE,
 	entry: entries,
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve('build')
   },
   plugins: generateCanvasTemplates(),
 }

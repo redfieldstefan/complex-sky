@@ -1,4 +1,4 @@
-import { randomRgbaVal, randomMedVal, createCanvas } from '../index';
+import { randomRgbaVal, randomMedVal, createCanvas } from '../index.js';
 
 const partMoon = ({id="part-moon", height = 500, width = 700}) => {
 	const canvas = document.getElementById('canvas');
